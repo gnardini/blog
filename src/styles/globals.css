@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-font: 'Roboto', sans-serif;
+  --secondary-font: 'Lato', sans-serif;
+  --primary-background: #1F1F1F;
+  --secondary-background: #2C2C2C;
+  --primary-accent: #4A90E2;
+  --secondary-accent: #D0021B;
+  --text-primary: #F5F5F5;
+  --text-secondary: #A9A9A9;
+  --text-tertiary: #696969;
+  --error: #E74C3C;
+  --success: #2ECC71;
+}
+
+body {
+  font-family: var(--primary-font);
+  color: var(--text-primary);
+  background-color: var(--primary-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--secondary-font);
+  color: var(--primary-accent);
+}
+
+a {
+  color: var(--primary-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--secondary-accent);
+}
+
+.button-primary {
+  background-color: var(--primary-accent);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-family: var(--primary-font);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button-primary:hover {
+  background-color: var(--secondary-accent);
+}
+
+.button-secondary {
+  background-color: var(--secondary-accent);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-family: var(--primary-font);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button-secondary:hover {
+  background-color: var(--primary-accent);
+}
+
+.error {
+  color: var(--error);
+}
+
+.success {
+  color: var(--success);
+}
