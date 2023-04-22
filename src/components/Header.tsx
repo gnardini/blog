@@ -1,0 +1,43 @@
+import React from "react";
+import { useRouter } from "next/router";
+import { AiOutlineTwitter } from "react-icons/ai";
+
+const Header: React.FC = () => {
+  const router = useRouter();
+
+  return (
+    <header className="flex justify-between items-center py-4 px-8">
+      <div className="flex items-center">
+        <img
+          src="https://pbs.twimg.com/profile_images/1531335419966763008/z6WcAmY1_400x400.jpg"
+          alt="Your profile picture"
+          className="rounded-full w-12 h-12 mr-4"
+        />
+        <h1 className="text-2xl">Gonza Nardini</h1>
+      </div>
+      <div className="flex items-center">
+        <a
+          href="/about"
+          onClick={(e) => {
+            e.preventDefault();
+            router.push("/about");
+          }}
+          className="text-lg mr-4"
+        >
+          About
+        </a>
+        <a
+          href="https://twitter.com/gonza_nardini"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-2xl"
+        >
+          <AiOutlineTwitter />
+        </a>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
+
