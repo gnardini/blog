@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import Landing from '../components/Landing';
 import Blog from '../components/Blog';
 
 export interface Post {
@@ -16,7 +15,6 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ posts }) => {
   return (
     <div className="container mx-auto mt-12 px-4">
-      <Landing />
       <Blog posts={posts} />
     </div>
   );
@@ -36,4 +34,3 @@ export async function getStaticProps() {
 }
 
 export default Home;
-

@@ -5,9 +5,14 @@ import { AiOutlineTwitter } from "react-icons/ai";
 const Header: React.FC = () => {
   const router = useRouter();
 
+  const navigateToHome = (e: React.MouseEvent) => {
+    e.preventDefault();
+    router.push("/");
+  };
+
   return (
     <header className="flex justify-between items-center py-4 px-8">
-      <div className="flex items-center">
+      <div className="flex items-center" onClick={navigateToHome} style={{ cursor: "pointer" }}>
         <img
           src="https://pbs.twimg.com/profile_images/1531335419966763008/z6WcAmY1_400x400.jpg"
           alt="Your profile picture"
@@ -25,6 +30,13 @@ const Header: React.FC = () => {
           className="text-lg mr-4"
         >
           About
+        </a>
+        <a
+          href="/"
+          onClick={navigateToHome}
+          className="text-lg mr-4"
+        >
+          Blog
         </a>
         <a
           href="https://twitter.com/gonza_nardini"
