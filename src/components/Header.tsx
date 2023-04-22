@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { AiOutlineTwitter } from "react-icons/ai";
+import Link from "next/link";
 
 const Header: React.FC = () => {
   const router = useRouter();
@@ -21,7 +22,7 @@ const Header: React.FC = () => {
         <h1 className="text-2xl">Gonza Nardini</h1>
       </div>
       <div className="flex items-center">
-        <a
+        <Link
           href="/about"
           onClick={(e) => {
             e.preventDefault();
@@ -30,14 +31,14 @@ const Header: React.FC = () => {
           className="text-lg mr-4"
         >
           About
-        </a>
-        <a
+        </Link>
+        <Link
           href="/"
           onClick={navigateToHome}
           className="text-lg mr-4"
         >
           Blog
-        </a>
+        </Link>
         <a
           href="https://twitter.com/gonza_nardini"
           target="_blank"
