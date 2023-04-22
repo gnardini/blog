@@ -1,5 +1,7 @@
-import React from 'react';
-import { Post } from '../pages';
+import React from "react";
+import Link from "next/link";
+import { Post } from "../pages";
+import { slugify } from "../utils/slugify";
 
 interface BlogProps {
   posts: Post[];
@@ -12,8 +14,13 @@ const Blog: React.FC<BlogProps> = ({ posts }) => {
       <ul>
         {posts.map((post, index) => (
           <li key={index} className="mb-2">
-            <span className="font-semibold">{post.title}</span> -{' '}
-            <span className="text-gray-500">{post.date}</span>
+            <Link
+              className="font-semibold"
+              href={`/blog/${slugify(post.title)}`}
+            >
+              {post.title}
+            </Link>{" "}
+            - <span className="text-gray-500">{post.date}</span>
           </li>
         ))}
       </ul>
