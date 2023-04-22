@@ -5,7 +5,8 @@ import { Post } from "..";
 import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
 import { slugify } from "../../utils/slugify";
-import Head from 'next/head';
+import Head from "next/head";
+import rehypeRaw from "rehype-raw";
 
 interface BlogPostProps {
   post: Post;
@@ -19,14 +20,28 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
   }
 
   return (
-    <div className="container mx-auto mt-12 px-4">
+    <div className="container max-w-screen-sm mx-auto mt-12 px-4">
       <Head>
         <title>{post.title}</title>
         <meta name="description" content={`${post.title} by Gonza Nardini`} />
       </Head>
-      <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-      <p className="text-gray-500 mb-8">{post.date}</p>
-      <ReactMarkdown>{post.content}</ReactMarkdown>
+      <p className="text-gray-500 mb-4">{post.date}</p>
+      <ReactMarkdown
+        components={{
+          h1: ({ node, ...props }) => (
+            <h1 {...props} className="font-semibold text-3xl font-['Helvetica']" />
+          ),
+          h2: ({ node, ...props }) => (
+            <h2 {...props} className="font-semibold text-2xl font-['Helvetica']" />
+          ),
+          p: ({ node, ...props }) => (
+            <p {...props} className="mt-4 mb-4 text-md font-['Helvetica']" />
+          ),
+        }}
+        rehypePlugins={[rehypeRaw]}
+      >
+        {post.content}
+      </ReactMarkdown>
     </div>
   );
 };

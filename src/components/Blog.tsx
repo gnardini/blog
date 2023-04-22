@@ -13,14 +13,14 @@ const Blog: React.FC<BlogProps> = ({ posts }) => {
       <h2 className="text-2xl font-bold mb-4">Blog Posts</h2>
       <ul>
         {posts.map((post, index) => (
-          <li key={index} className="mb-2">
+          <li key={index} className="mb-4">
             <Link
-              className="font-semibold"
+              className="font-medium text-3xl"
               href={`/blog/${slugify(post.title)}`}
             >
               {post.title}
-            </Link>{" "}
-            - <span className="text-gray-500">{post.date}</span>
+            </Link>
+            <span className="text-gray-500 ml-4">{post.date}</span>
           </li>
         ))}
       </ul>

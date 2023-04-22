@@ -11,7 +11,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="flex justify-between items-center py-4 px-8">
+    <header className="flex justify-between items-center py-4 max-w-screen-md mx-auto">
       <div className="flex items-center" onClick={navigateToHome} style={{ cursor: "pointer" }}>
         <img
           src="https://pbs.twimg.com/profile_images/1531335419966763008/z6WcAmY1_400x400.jpg"
