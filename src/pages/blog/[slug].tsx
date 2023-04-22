@@ -5,6 +5,7 @@ import { Post } from "..";
 import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
 import { slugify } from "../../utils/slugify";
+import Head from 'next/head';
 
 interface BlogPostProps {
   post: Post;
@@ -19,6 +20,10 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
 
   return (
     <div className="container mx-auto mt-12 px-4">
+      <Head>
+        <title>{post.title}</title>
+        <meta name="description" content={`${post.title} by Gonza Nardini`} />
+      </Head>
       <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
       <p className="text-gray-500 mb-8">{post.date}</p>
       <ReactMarkdown>{post.content}</ReactMarkdown>
