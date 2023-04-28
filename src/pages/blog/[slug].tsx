@@ -35,7 +35,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
             <h2 {...props} className="font-semibold text-2xl font-['Helvetica']" />
           ),
           p: ({ node, ...props }) => (
-            <p {...props} className="mt-4 mb-4 text-md font-['Helvetica']" />
+            <p {...props} className="mt-4 mb-4 text-lg font-['Helvetica']" />
           ),
         }}
         rehypePlugins={[rehypeRaw]}
