@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import Header from "@/components/Header";
 import Head from "next/head";
 import Script from "next/script";
+import { AnalyticsProvider } from "../utils/analyticsContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -27,8 +28,12 @@ export default function App({ Component, pageProps }: AppProps) {
           gtag('config', 'G-CB93D92PF4');
         `}
       </Script>
-      <Header />
-      <Component {...pageProps} />
+      <AnalyticsProvider>
+        <>
+          <Header />
+          <Component {...pageProps} />
+        </>
+      </AnalyticsProvider>
     </>
   );
 }
