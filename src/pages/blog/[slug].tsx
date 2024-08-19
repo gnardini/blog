@@ -1,13 +1,14 @@
-import React from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
 import axios from 'axios';
-import { Post } from '..';
-import { useRouter } from 'next/router';
-import ReactMarkdown from 'react-markdown';
-import { slugify } from '../../utils/slugify';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import { Post } from '..';
+import { SubscribeView } from '../../components/SubscribeView';
 import { primaryAccent } from '../../utils/colors';
+import { slugify } from '../../utils/slugify';
 
 interface BlogPostProps {
   post: Post;
@@ -47,6 +48,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
       >
         {post.content}
       </ReactMarkdown>
+      <SubscribeView />
     </div>
   );
 };
