@@ -4,13 +4,14 @@ import { primaryAccent } from '../utils/colors';
 
 export const SubscribeView: React.FC = () => {
   const [email, setEmail] = useState('');
+  const [subscriptionSuccess, setSubscriptionSuccess] = useState(false);
   const { execute, loading, error } = useSubscriptionQuery();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const result = await execute({ email });
-      alert(result.message);
+      setSubscriptionSuccess(true);
       setEmail('');
     } catch (err) {
       console.error('Subscription failed:', err);
@@ -32,14 +33,20 @@ export const SubscribeView: React.FC = () => {
             required
             className="mt-1 p-1 text-black outline-primary-accent block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           />
-          <button
-            type="submit"
-            disabled={loading}
-            className={`w-full py-1 px-4 text-xl border border-transparent rounded-md shadow-sm font-medium text-black bg-primary-accent hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-accent`}
-            style={{ backgroundColor: primaryAccent }}
-          >
-            {loading ? 'Subscribing...' : 'Subscribe'}
-          </button>
+          {subscriptionSuccess ? (
+            <p className="w-full py-1 px-4 text-xl font-medium text-center" style={{ color: primaryAccent }}>
+              Subscription successful!
+            </p>
+          ) : (
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full py-1 px-4 text-xl border border-transparent rounded-md shadow-sm font-medium text-black bg-primary-accent hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-accent`}
+              style={{ backgroundColor: primaryAccent }}
+            >
+              {loading ? 'Subscribing...' : 'Subscribe'}
+            </button>
+          )}
         </form>
         {error && <p className="mt-2 text-sm text-red-600">{error.message}</p>}
       </div>
