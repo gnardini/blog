@@ -13,9 +13,9 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="flex justify-between items-center py-16 max-w-screen-md mx-auto">
+    <header className="flex flex-col md:flex-row justify-between items-center py-8 sm:py-16 max-w-screen-md mx-auto">
       <div
-        className="flex items-center"
+        className="flex items-center mb-6 md:mb-0"
         onClick={navigateToHome}
         style={{ cursor: "pointer" }}
       >
@@ -24,40 +24,40 @@ const Header: React.FC = () => {
           alt="Your profile picture"
           className="rounded-full w-12 h-12 mr-4"
         />
-        <h1 className="text-4xl font-semibold tracking-widest">
+        <h1 className="text-4xl font-semibold tracking-wide sm:tracking-widest">
           GONZA NARDINI
         </h1>
       </div>
-      <div className="flex items-center">
+      <div className="flex flex-wrap justify-center items-center">
         <Link
           href="/about"
-          className="text-xl font-medium text-text-primary hover:underline hover:text-primary-accent"
+          className="text-xl font-medium text-text-primary hover:underline hover:text-primary-accent mx-3 my-2"
         >
           About
         </Link>
-        <div className="w-[1px] h-4 bg-gray-500 mx-6" />
+        <div className="w-[1px] h-4 bg-gray-500 mx-3 hidden md:block" />
         <Link
           href="/"
           onClick={navigateToHome}
-          className="text-xl font-medium text-text-primary hover:underline hover:text-primary-accent"
+          className="text-xl font-medium text-text-primary hover:underline hover:text-primary-accent mx-3 my-2"
         >
           Blog
         </Link>
-        <div className="w-[1px] h-4 bg-gray-500 mx-6" />
+        <div className="w-[1px] h-4 bg-gray-500 mx-3 hidden md:block" />
         <a
           href="https://twitter.com/gonza_nardini"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xl text-text-primary hover:text-primary-accent"
+          className="text-xl text-text-primary hover:text-primary-accent mx-3 my-2"
         >
           <AiOutlineTwitter />
         </a>
-        <div className="w-[1px] h-4 bg-gray-500 mx-6" />
+        <div className="w-[1px] h-4 bg-gray-500 mx-3 hidden md:block" />
         <a
           href="https://github.com/gnardini"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xl text-text-primary hover:text-primary-accent"
+          className="text-xl text-text-primary hover:text-primary-accent mx-3 my-2"
         >
           <AiOutlineGithub />
         </a>

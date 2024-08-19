@@ -21,7 +21,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
   }
 
   return (
-    <div className="max-w-screen-md mx-auto mt-12 px-4">
+    <div className="max-w-screen-md mx-auto mt-4 sm:mt-12 px-4">
       <Head>
         <title>{post.title}</title>
         <meta name="description" content={`${post.title} by Gonza Nardini`} />
