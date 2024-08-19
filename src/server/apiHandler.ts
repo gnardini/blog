@@ -40,6 +40,7 @@ export function createApiHandler<T, Authenticate extends boolean = false>({
       return res.status(405).json({ error: 'Method Not Allowed' });
     }
 
+    
     try {
       const data = schema.parse(['GET', 'DELETE'].includes(method) ? req.query : req.body);
       let user: User | null = null;

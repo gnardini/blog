@@ -100,7 +100,7 @@ export async function makeQuery({
     method,
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${authToken}`,
+      Authorization: authToken ? `Bearer ${authToken}` : '',
     },
     body,
   });
