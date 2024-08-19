@@ -30,8 +30,10 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
       <ReactMarkdown
         components={{
           h1: ({ node, ...props }) => (
-            <div className="flex items-center mb-4">
-              <div className="w-1 h-8 bg-primary-accent mr-3" style={{ backgroundColor: primaryAccent }}></div>
+            <div className="flex mb-4">
+              <div className="flex items-stretch">
+                <div className="w-1 self-stretch bg-primary-accent mr-3" style={{ backgroundColor: primaryAccent }}></div>
+              </div>
               <h1 {...props} className="font-semibold text-3xl" />
             </div>
           ),
