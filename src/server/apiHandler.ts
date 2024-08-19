@@ -1,9 +1,9 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { z } from "zod";
-import { User } from "../types/user";
-import { AuthService } from "./services/AuthService";
+import { NextApiRequest, NextApiResponse } from 'next';
+import { z } from 'zod';
+import { User } from '../types/user';
+import { AuthService } from './services/AuthService';
 
-type HttpMethod = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
+type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
 interface ApiHandlerOptions<T, Authenticate extends boolean = false> {
   method: HttpMethod;
@@ -14,14 +14,17 @@ interface ApiHandlerOptions<T, Authenticate extends boolean = false> {
       req: NextApiRequest;
       res: NextApiResponse;
       user: Authenticate extends true ? User : User | null;
-    }
+    },
   ) => Promise<any>;
   requiresAuth?: Authenticate;
 }
 
 export class ApiError extends Error {
   isApiError = true;
-  constructor(readonly statusCode: number, message: string) {
+  constructor(
+    readonly statusCode: number,
+    message: string,
+  ) {
     super(message);
   }
 }
@@ -34,16 +37,14 @@ export function createApiHandler<T, Authenticate extends boolean = false>({
 }: ApiHandlerOptions<T, Authenticate>) {
   return async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method !== method) {
-      return res.status(405).json({ error: "Method Not Allowed" });
+      return res.status(405).json({ error: 'Method Not Allowed' });
     }
 
     try {
-      const data = schema.parse(
-        ["GET", "DELETE"].includes(method) ? req.query : req.body
-      );
+      const data = schema.parse(['GET', 'DELETE'].includes(method) ? req.query : req.body);
       let user: User | null = null;
       const authHeader = req.headers.authorization;
-      if (authHeader?.startsWith("Bearer ")) {
+      if (authHeader?.startsWith('Bearer ')) {
         const token = authHeader.substring(7);
         const authenticatedUser = await AuthService.verifyAuthToken(token);
         if (authenticatedUser) {
@@ -52,14 +53,14 @@ export function createApiHandler<T, Authenticate extends boolean = false>({
       }
 
       if (requiresAuth && !user) {
-        throw new ApiError(403, "User not authenticated");
+        throw new ApiError(403, 'User not authenticated');
       }
 
       const result = await handler(data, { req, res, user: user as any });
 
       if (result === undefined) {
         return res.status(204).end();
-      } else if (typeof result === "object") {
+      } else if (typeof result === 'object') {
         if (result.redirect) {
           return res.redirect(302, result.redirect);
         }
@@ -72,12 +73,10 @@ export function createApiHandler<T, Authenticate extends boolean = false>({
         return res.status(400).json({ error: error.errors });
       }
       if (error instanceof ApiError) {
-        return res
-          .status(error.statusCode ?? 400)
-          .json({ error: error.message });
+        return res.status(error.statusCode ?? 400).json({ error: error.message });
       }
-      console.error("Error in API handler:", error);
-      return res.status(500).json({ error: "Internal Server Error" });
+      console.error('Error in API handler:', error);
+      return res.status(500).json({ error: 'Internal Server Error' });
     }
   };
 }

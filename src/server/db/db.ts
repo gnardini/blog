@@ -1,11 +1,5 @@
-import { Knex, knex } from "knex";
-import {
-  DB_HOST,
-  DB_NAME,
-  DB_PASSWORD,
-  DB_USERNAME,
-  IS_DEV_MODE,
-} from "../../config";
+import { Knex, knex } from 'knex';
+import { DB_HOST, DB_NAME, DB_PASSWORD, DB_USERNAME, IS_DEV_MODE } from '../../config';
 
 let db: Knex;
 
@@ -35,7 +29,7 @@ export async function initDatabase(runMigrations = true) {
 
 async function doDbInitialization(runMigrations: boolean) {
   const newDb = knex({
-    client: "pg",
+    client: 'pg',
     connection: {
       host: DB_HOST,
       database: DB_NAME,
@@ -49,15 +43,15 @@ async function doDbInitialization(runMigrations: boolean) {
   });
 
   if (runMigrations) {
-    console.info("Running Migrations");
+    console.info('Running Migrations');
 
     await newDb.migrate.latest({
-      directory: "./dist/src/server/db/migrations",
-      loadExtensions: [".js"],
+      directory: './dist/src/server/db/migrations',
+      loadExtensions: ['.js'],
     });
   }
 
-  console.info("Database initialized successfully");
+  console.info('Database initialized successfully');
   return newDb;
 }
 

@@ -1,11 +1,11 @@
-import jwt from "jsonwebtoken";
-import { JWT_SECRET } from "../../config";
-import { getDatabase } from "../db/db";
+import jwt from 'jsonwebtoken';
+import { JWT_SECRET } from '../../config';
+import { getDatabase } from '../db/db';
 
 export const AuthService = {
   createUserAuthToken(userId: number) {
     const token = jwt.sign({ userId }, JWT_SECRET, {
-      expiresIn: "99999d", // TODO: should expire and have a way to send new token
+      expiresIn: '99999d', // TODO: should expire and have a way to send new token
     });
     return token;
   },
@@ -13,10 +13,10 @@ export const AuthService = {
   async verifyAuthToken(authToken: string) {
     const payload = await AuthService.parseAuthToken(authToken);
     if (!payload.userId) {
-      throw new Error("Invalid token");
+      throw new Error('Invalid token');
     }
     const db = await getDatabase();
-    return await db("users").where({ id: payload.userId }).first();
+    return await db('users').where({ id: payload.userId }).first();
   },
 
   async parseAuthToken(authToken: string) {

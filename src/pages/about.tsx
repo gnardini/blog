@@ -1,16 +1,13 @@
-import React from "react";
-import ProjectView from "../components/ProjectView";
+import React from 'react';
+import ProjectView from '../components/ProjectView';
 
 const About: React.FC = () => {
   return (
     <div className="flex flex-col max-w-screen-md mx-auto mt-12 px-4">
+      <p className="text-lg mb-4">I'm Gonza, a Software Engineer and entrepreneur.</p>
       <p className="text-lg mb-4">
-        I'm Gonza, a Software Engineer and entrepreneur.
-      </p>
-      <p className="text-lg mb-4">
-        I built products that reached millions of users and these days I'm
-        exploring how to use AI to build software autonomously with high
-        quality.
+        I built products that reached millions of users and these days I'm exploring how to use AI
+        to build software autonomously with high quality.
       </p>
       <h3 className="mt-4 mb-2 font-semibold text-base">My Projects:</h3>
       <ul className="space-y-2">

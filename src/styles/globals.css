@@ -7,9 +7,9 @@
 :root {
   --primary-font: 'Source Sans Pro', sans-serif;
   --primary-background: #101428;
-  --primary-accent: #DAFF00;
-  --text-primary: #F9F9F9;
-  --text-secondary: #EAEAEA;
+  --primary-accent: #daff00;
+  --text-primary: #f9f9f9;
+  --text-secondary: #eaeaea;
 }
 
 body {
@@ -18,7 +18,12 @@ body {
   background-color: var(--primary-background);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: bold;
 }
 

@@ -1,6 +1,6 @@
-import colors from "tailwindcss/colors";
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../../tailwind.config.js";
+import colors from 'tailwindcss/colors';
+import resolveConfig from 'tailwindcss/resolveConfig';
+import tailwindConfig from '../../tailwind.config.js';
 
 const { theme } = resolveConfig(tailwindConfig);
 
@@ -17,7 +17,7 @@ export const gray6 = colors.gray[600];
 export const gray7 = colors.gray[700];
 export const gray9 = colors.gray[900];
 
-export const primaryBackground = customColors["primary-background"];
-export const primaryAccent = customColors["primary-accent"];
-export const textPrimary = customColors["text-primary"];
-export const textSecondary = customColors["text-secondary"];
+export const primaryBackground = customColors['primary-background'];
+export const primaryAccent = customColors['primary-accent'];
+export const textPrimary = customColors['text-primary'];
+export const textSecondary = customColors['text-secondary'];

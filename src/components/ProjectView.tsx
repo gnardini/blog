@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface ProjectViewProps {
   name: string;
@@ -16,7 +16,7 @@ const ProjectView: React.FC<ProjectViewProps> = ({ name, link, description }) =>
         className="text-primary-accent font-bold hover:underline"
       >
         {name}
-      </a>{" "}
+      </a>{' '}
       - {description}
     </li>
   );

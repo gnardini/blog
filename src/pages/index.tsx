@@ -22,7 +22,7 @@ const Home: React.FC<HomeProps> = ({ posts }) => {
 
 export async function getStaticProps() {
   const response = await axios.get(
-    'https://raw.githubusercontent.com/gnardini/blog-content/main/posts.json'
+    'https://raw.githubusercontent.com/gnardini/blog-content/main/posts.json',
   );
   const posts: Post[] = response.data;
 
@@ -34,4 +34,3 @@ export async function getStaticProps() {
 }
 
 export default Home;
-

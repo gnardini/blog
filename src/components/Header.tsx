@@ -1,15 +1,15 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import React from "react";
-import { AiOutlineGithub, AiOutlineTwitter } from "react-icons/ai";
-import { textPrimary } from "../utils/colors";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React from 'react';
+import { AiOutlineGithub, AiOutlineTwitter } from 'react-icons/ai';
+import { textPrimary } from '../utils/colors';
 
 const Header: React.FC = () => {
   const router = useRouter();
 
   const navigateToHome = (e: React.MouseEvent) => {
     e.preventDefault();
-    router.push("/");
+    router.push('/');
   };
 
   return (
@@ -17,16 +17,14 @@ const Header: React.FC = () => {
       <div
         className="flex items-center mb-6 md:mb-0"
         onClick={navigateToHome}
-        style={{ cursor: "pointer" }}
+        style={{ cursor: 'pointer' }}
       >
         <img
           src="/profile-pic.jpg"
           alt="Your profile picture"
           className="rounded-full w-12 h-12 mr-4"
         />
-        <h1 className="text-4xl font-semibold tracking-wide sm:tracking-widest">
-          GONZA NARDINI
-        </h1>
+        <h1 className="text-4xl font-semibold tracking-wide sm:tracking-widest">GONZA NARDINI</h1>
       </div>
       <div className="flex flex-wrap justify-center items-center">
         <Link

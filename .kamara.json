@@ -1,9 +1,0 @@
-{
-  "description": [
-    "Personal website that contains a blog",
-    
-    "The tech stack used is a Typescript Nextjs app.",
-    "We use Tailwind CSS for styling."
-  ],
-  "sourceFolders": ["src"]
-}

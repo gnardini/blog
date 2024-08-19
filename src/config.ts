@@ -1,5 +1,5 @@
-export const IS_DEV_MODE = process.env.NEXT_PUBLIC_ENV === "local";
-export const ANALYTICS_PROJECT = "gnardini";
+export const IS_DEV_MODE = process.env.NEXT_PUBLIC_ENV === 'local';
+export const ANALYTICS_PROJECT = 'gnardini';
 export const JWT_SECRET = process.env.JWT_SECRET!;
 
 export const DB_HOST = process.env.DB_HOST;

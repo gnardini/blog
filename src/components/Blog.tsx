@@ -1,7 +1,7 @@
-import React from "react";
-import Link from "next/link";
-import { Post } from "../pages";
-import { slugify } from "../utils/slugify";
+import React from 'react';
+import Link from 'next/link';
+import { Post } from '../pages';
+import { slugify } from '../utils/slugify';
 
 interface BlogProps {
   posts: Post[];

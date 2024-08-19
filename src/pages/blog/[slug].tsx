@@ -1,13 +1,13 @@
-import React from "react";
-import { GetStaticPaths, GetStaticProps } from "next";
-import axios from "axios";
-import { Post } from "..";
-import { useRouter } from "next/router";
-import ReactMarkdown from "react-markdown";
-import { slugify } from "../../utils/slugify";
-import Head from "next/head";
-import rehypeRaw from "rehype-raw";
-import { primaryAccent } from "../../utils/colors";
+import React from 'react';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import axios from 'axios';
+import { Post } from '..';
+import { useRouter } from 'next/router';
+import ReactMarkdown from 'react-markdown';
+import { slugify } from '../../utils/slugify';
+import Head from 'next/head';
+import rehypeRaw from 'rehype-raw';
+import { primaryAccent } from '../../utils/colors';
 
 interface BlogPostProps {
   post: Post;
@@ -32,17 +32,16 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
           h1: ({ node, ...props }) => (
             <div className="flex mb-4">
               <div className="flex items-stretch">
-                <div className="w-1 self-stretch bg-primary-accent mr-3" style={{ backgroundColor: primaryAccent }}></div>
+                <div
+                  className="w-1 self-stretch bg-primary-accent mr-3"
+                  style={{ backgroundColor: primaryAccent }}
+                ></div>
               </div>
               <h1 {...props} className="font-semibold text-3xl" />
             </div>
           ),
-          h2: ({ node, ...props }) => (
-            <h2 {...props} className="font-semibold text-2xl" />
-          ),
-          p: ({ node, ...props }) => (
-            <p {...props} className="mt-4 mb-4 text-lg" />
-          ),
+          h2: ({ node, ...props }) => <h2 {...props} className="font-semibold text-2xl" />,
+          p: ({ node, ...props }) => <p {...props} className="mt-4 mb-4 text-lg" />,
         }}
         rehypePlugins={[rehypeRaw]}
       >
@@ -54,7 +53,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await axios.get(
-    "https://raw.githubusercontent.com/gnardini/blog-content/main/posts.json"
+    'https://raw.githubusercontent.com/gnardini/blog-content/main/posts.json',
   );
   const posts: Post[] = response.data;
 
@@ -65,13 +64,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: true };
 };
 
-export const getStaticProps: GetStaticProps<BlogPostProps> = async (
-  context
-) => {
+export const getStaticProps: GetStaticProps<BlogPostProps> = async (context) => {
   const { slug } = context.params as { slug: string };
 
   const response = await axios.get(
-    "https://raw.githubusercontent.com/gnardini/blog-content/main/posts.json"
+    'https://raw.githubusercontent.com/gnardini/blog-content/main/posts.json',
   );
   const posts: Post[] = response.data;
 
@@ -84,7 +81,7 @@ export const getStaticProps: GetStaticProps<BlogPostProps> = async (
   }
 
   const contentResponse = await axios.get(
-    `https://raw.githubusercontent.com/gnardini/blog-content/main/${post.content}`
+    `https://raw.githubusercontent.com/gnardini/blog-content/main/${post.content}`,
   );
   post.content = contentResponse.data;
 

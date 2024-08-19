@@ -5,4 +5,3 @@ export function slugify(title: string): string {
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-');
 }
-

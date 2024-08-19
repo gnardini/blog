@@ -1,11 +1,11 @@
-import { useRouter } from "next/router";
-import { createContext, useContext, useEffect, useState } from "react";
-import { getSelectorsByUserAgent } from "react-device-detect";
-import { ANALYTICS_PROJECT, IS_DEV_MODE } from "../config";
-import { isBot, mapReferer } from "./tracking";
-import { v4 as uuidv4 } from "uuid";
+import { useRouter } from 'next/router';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { getSelectorsByUserAgent } from 'react-device-detect';
+import { ANALYTICS_PROJECT, IS_DEV_MODE } from '../config';
+import { isBot, mapReferer } from './tracking';
+import { v4 as uuidv4 } from 'uuid';
 
-const BASE_URL = "https://y.aram.zone";
+const BASE_URL = 'https://y.aram.zone';
 // const BASE_URL = "http://localhost:4001";
 
 interface Event {
@@ -25,13 +25,13 @@ export function AnalyticsProvider({ children }: { children: JSX.Element }) {
   const [uid, setUid] = useState<string | null>(null);
 
   useEffect(() => {
-    if (typeof window === "undefined" || !uid) {
+    if (typeof window === 'undefined' || !uid) {
       return;
     }
 
     const routeHandler = handleRouteChange(uid);
-    router.events.on("routeChangeStart", routeHandler);
-    return () => router.events.off("routeChangeStart", routeHandler);
+    router.events.on('routeChangeStart', routeHandler);
+    return () => router.events.off('routeChangeStart', routeHandler);
   }, [uid]);
 
   useEffect(() => {
@@ -55,9 +55,7 @@ export function AnalyticsProvider({ children }: { children: JSX.Element }) {
 export const useAnalyticsContext = () => {
   const context = useContext(AnalyticsContext);
   if (!context) {
-    throw new Error(
-      "useAnalyticsContext must be used within a AnalyticsPrivoder"
-    );
+    throw new Error('useAnalyticsContext must be used within a AnalyticsPrivoder');
   }
   return context;
 };
@@ -79,9 +77,9 @@ const handleRouteChange = (uid: string) => (url: string) => {
   };
 
   fetch(`${BASE_URL}/pageview`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       project: ANALYTICS_PROJECT,
@@ -101,9 +99,9 @@ function logEvent(uid: string, { name, group, data }: Event) {
   }
   console.log(`Analytics event: ${group}/${name} - ${JSON.stringify(data)}`);
   fetch(`${BASE_URL}/event`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       project: ANALYTICS_PROJECT,
@@ -115,7 +113,7 @@ function logEvent(uid: string, { name, group, data }: Event) {
   });
 }
 
-const UID_KEY = "gnardini/uid";
+const UID_KEY = 'gnardini/uid';
 export function getOrCreateUid() {
   let uid = localStorage.getItem(UID_KEY);
   if (!uid) {
