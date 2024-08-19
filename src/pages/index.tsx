@@ -14,7 +14,7 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ posts }) => {
   return (
-    <div className="container max-w-screen-md mx-auto mt-12 px-4">
+    <div className="max-w-screen-md mx-auto mt-12 px-4 h-full">
       <Blog posts={posts} />
     </div>
   );

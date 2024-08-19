@@ -1,19 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --primary-font: 'Roboto', sans-serif;
-  --secondary-font: 'Lato', sans-serif;
-  --primary-background: #1F1F1F;
-  --secondary-background: #2C2C2C;
-  --primary-accent: #4A90E2;
-  --secondary-accent: #95C6F8;
-  --text-primary: #F5F5F5;
-  --text-secondary: #A9A9A9;
-  --text-tertiary: #696969;
-  --error: #E74C3C;
-  --success: #2ECC71;
+  --primary-font: 'Source Sans Pro', sans-serif;
+  --primary-background: #101428;
+  --primary-accent: #DAFF00;
+  --text-primary: #F9F9F9;
+  --text-secondary: #EAEAEA;
 }
 
 body {
@@ -23,15 +19,13 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--secondary-font);
-  color: var(--text-primary);
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 48px;
 }
 
 a {
   color: var(--primary-accent);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--secondary-accent);
 }
