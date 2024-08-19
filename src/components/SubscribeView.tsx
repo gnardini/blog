@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { useSubscriptionQuery } from '../queries/subscription/useSubscriptionQuery';
 import { primaryAccent } from '../utils/colors';
 
-export const SubscribeView: React.FC = () => {
+interface SubscribeViewProps {
+  className?: string;
+}
+
+export const SubscribeView: React.FC<SubscribeViewProps> = ({ className = '' }) => {
   const [email, setEmail] = useState('');
   const [subscriptionSuccess, setSubscriptionSuccess] = useState(false);
   const { execute, loading, error } = useSubscriptionQuery();
@@ -19,7 +23,7 @@ export const SubscribeView: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-row max-w-md mx-auto mt-8">
+    <div className={`flex flex-row max-w-md mx-auto mt-8 ${className}`}>
       <div className="w-1 bg-primary-accent shrink-0" />
       <div className="flex-grow ml-4">
         <h2 className="text-2xl font-bold mb-4">Receive new posts on your inbox</h2>

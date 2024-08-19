@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import Blog from '../components/Blog';
+import { SubscribeView } from '../components/SubscribeView';
 
 export interface Post {
   title: string;
@@ -16,6 +17,7 @@ const Home: React.FC<HomeProps> = ({ posts }) => {
   return (
     <div className="max-w-screen-md mx-auto mt-12 px-4 h-full">
       <Blog posts={posts} />
+      <SubscribeView className="mt-16" />
     </div>
   );
 };

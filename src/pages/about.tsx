@@ -1,5 +1,6 @@
 import React from 'react';
 import ProjectView from '../components/ProjectView';
+import { SubscribeView } from '../components/SubscribeView';
 
 const About: React.FC = () => {
   return (
@@ -42,6 +43,7 @@ const About: React.FC = () => {
           description="a portfolio management platform for the Celo blockchain."
         />
       </ul>
+      <SubscribeView className="mt-16" />
     </div>
   );
 };

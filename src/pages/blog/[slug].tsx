@@ -48,7 +48,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
       >
         {post.content}
       </ReactMarkdown>
-      <SubscribeView />
+      <SubscribeView className="mt-10" />
     </div>
   );
 };
