@@ -31,7 +31,7 @@ const Header: React.FC = () => {
       <div className="flex items-center">
         <Link
           href="/about"
-          className="text-xl font-semibold text-text-primary"
+          className="text-xl font-medium text-text-primary hover:underline hover:text-primary-accent"
         >
           About
         </Link>
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
         <Link
           href="/"
           onClick={navigateToHome}
-          className="text-xl font-semibold text-text-primary"
+          className="text-xl font-medium text-text-primary hover:underline hover:text-primary-accent"
         >
           Blog
         </Link>
@@ -48,18 +48,18 @@ const Header: React.FC = () => {
           href="https://twitter.com/gonza_nardini"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xl"
+          className="text-xl text-text-primary hover:text-primary-accent"
         >
-          <AiOutlineTwitter color={textPrimary} />
+          <AiOutlineTwitter />
         </a>
         <div className="w-[1px] h-4 bg-gray-500 mx-6" />
         <a
           href="https://github.com/gnardini"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xl"
+          className="text-xl text-text-primary hover:text-primary-accent"
         >
-          <AiOutlineGithub color={textPrimary} />
+          <AiOutlineGithub />
         </a>
       </div>
     </header>
