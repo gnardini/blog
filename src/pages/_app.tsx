@@ -18,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <>
           <Header />
           <Component {...pageProps} />
+          <div className="h-16" />
         </>
       </AnalyticsProvider>
     </>
