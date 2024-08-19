@@ -9,9 +9,9 @@ interface BlogProps {
 
 const Blog: React.FC<BlogProps> = ({ posts }) => {
   return (
-    <div className="flex flex-row w-full h-full">
-      <div className="w-1 h-full bg-primary-accent shrink-0" />
-      <div>
+    <div className="flex flex-row w-full">
+      <div className="w-1 bg-primary-accent shrink-0" />
+      <div className="flex-grow p-4">
         <h2 className="text-2xl font-bold mb-4">Blog Posts</h2>
         <ul>
           {posts.map((post, index) => (
