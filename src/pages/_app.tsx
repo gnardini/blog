@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:type" content="website" />
         <meta name="twitter:image" content={`/profile-pic.jpg`} />
         <meta name="twitter:card" content="summary" />
-        <script defer data-domain="gnardini.com" src="https://analytics.gnardini.com/script.js"></script>
+        <script defer data-domain="gnardini.com" src="https://phinxer.com/script.js"></script>
       </Head>
       <AnalyticsProvider>
         <>
