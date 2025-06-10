@@ -26,7 +26,6 @@ const Header: React.FC = () => {
         <h1 className="text-4xl font-semibold tracking-wide sm:tracking-widest">GONZA NARDINI</h1>
       </div>
       <div className="flex flex-wrap justify-center items-center">
-        <div className="w-[1px] h-4 bg-gray-500 mx-3 hidden md:block" />
         <Link
           href="/blog"
           className="text-xl font-medium text-text-primary hover:underline hover:text-primary-accent mx-3 my-2"
