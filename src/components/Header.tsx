@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { AiOutlineGithub, AiOutlineTwitter } from 'react-icons/ai';
-import { textPrimary } from '../utils/colors';
 
 const Header: React.FC = () => {
   const router = useRouter();
@@ -27,23 +26,16 @@ const Header: React.FC = () => {
         <h1 className="text-4xl font-semibold tracking-wide sm:tracking-widest">GONZA NARDINI</h1>
       </div>
       <div className="flex flex-wrap justify-center items-center">
-        <Link
-          href="/about"
-          className="text-xl font-medium text-text-primary hover:underline hover:text-primary-accent mx-3 my-2"
-        >
-          About
-        </Link>
         <div className="w-[1px] h-4 bg-gray-500 mx-3 hidden md:block" />
         <Link
-          href="/"
-          onClick={navigateToHome}
+          href="/blog"
           className="text-xl font-medium text-text-primary hover:underline hover:text-primary-accent mx-3 my-2"
         >
           Blog
         </Link>
         <div className="w-[1px] h-4 bg-gray-500 mx-3 hidden md:block" />
         <a
-          href="https://twitter.com/gonza_nardini"
+          href="https://x.com/gonza_nardini"
           target="_blank"
           rel="noopener noreferrer"
           className="text-xl text-text-primary hover:text-primary-accent mx-3 my-2"
