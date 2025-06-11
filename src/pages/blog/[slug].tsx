@@ -1,3 +1,4 @@
+import { Post } from '@/pages/blog';
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
@@ -5,7 +6,6 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
-import { Post } from '..';
 import { SubscribeView } from '../../components/SubscribeView';
 import { primaryAccent } from '../../utils/colors';
 import { slugify } from '../../utils/slugify';
