@@ -1,6 +1,6 @@
-import React from 'react';
+import { Post } from '@/pages/blog';
 import Link from 'next/link';
-import { Post } from '../pages';
+import React from 'react';
 import { slugify } from '../utils/slugify';
 
 interface BlogProps {
